@@ -28,7 +28,7 @@ public class LoginTest extends Base {
 		loginPage = new LoginPage(driver);
 		loginPage.login("jisha1","admin");
 		System.out.println(GeneralUtility.getRandomFullName());
-		System.out.println(GeneralUtility.getRandomFullName());
+		
 			
 
 	}

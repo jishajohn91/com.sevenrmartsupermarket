@@ -34,4 +34,12 @@ public boolean isTextContains(WebElement element,String expectedText)
 {
 	return element.getText().contains(expectedText);
 }
+public List<String> getTextofElements(List <WebElement> elements)
+{
+	List<String> data = new ArrayList<String>();
+	for (WebElement element : elements) {
+		data.add(element.getText());
+	}
+	return data;
+}
 }

@@ -1,0 +1,20 @@
+<suite name="GroupRunner" thread-count="5" parallel="tests">
+	<listeners>
+		<listener
+			class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	
+	<test name="Group Test">
+		<groups>
+			<run>
+				<include name="smoke">
+					
+				</include>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+		</classes>
+	</test>
+</suite>

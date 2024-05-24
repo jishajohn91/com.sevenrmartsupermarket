@@ -33,7 +33,7 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.openAdminUsersTab();
 		adminUsersPage.listNameOfUsers();
-		String actualStatus= adminUsersPage.deactivateUser("Venice Hammes");
+		String actualStatus= adminUsersPage.deactivateUser("Kennedy345");
 		String expectedStatus= "Inactive";
 		Assert.assertEquals(actualStatus, expectedStatus);
 		

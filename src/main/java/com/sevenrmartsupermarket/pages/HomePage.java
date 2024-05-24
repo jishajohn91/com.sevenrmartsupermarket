@@ -12,6 +12,9 @@ public class HomePage {
 	private WebElement userProfileElement;
 	@FindBy(xpath = "//p[text()='Push Notifications']")
 	private WebElement pushNotificationTabElement;
+	@FindBy(xpath ="//div//a[contains(@href,'list-admin')]//i")
+	private WebElement adminUsersTabElement;	
+	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -25,5 +28,9 @@ public class HomePage {
 	public void openPushNotificationTab() {
 
 		pushNotificationTabElement.click();
+	}
+	public void openAdminUsersTab() {
+
+		adminUsersTabElement.click();
 	}
 }

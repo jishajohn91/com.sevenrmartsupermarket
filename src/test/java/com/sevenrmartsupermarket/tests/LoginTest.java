@@ -26,7 +26,7 @@ public class LoginTest extends Base {
 		loginPage.login();
 		String expectedProfileName = "Admin";
 		String actualProfileName = homePage.getProfileName();
-		//Assert.assertEquals(actualProfileName, expectedProfileName);
+		Assert.assertEquals(actualProfileName, expectedProfileName);
 
 	}
 	@Test(groups="sanity")

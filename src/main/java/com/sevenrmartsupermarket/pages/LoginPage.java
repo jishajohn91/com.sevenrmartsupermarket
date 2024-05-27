@@ -22,6 +22,10 @@ public class LoginPage {
 	private WebElement passwordField;
 	@FindBy(xpath="//button[text()='Sign In']")
 	private WebElement loginButtonField;
+	
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+	private WebElement loginAlertElement;
+	
 	By homePageWaitElement=By.xpath("//a[@class='d-block']");
 	
 	public LoginPage(WebDriver driver)
@@ -65,10 +69,22 @@ public class LoginPage {
 		enterPassword(password);
 		clickSigninButton();
 	}
-	public void getErrorMessage()
+	public boolean getErrorMessage()
 	{
-		
+		String alertText= loginAlertElement.getText();
+		System.out.println(loginAlertElement.getText());
+		boolean status;
+		if(alertText.contains("Invalid Username/Password"))
+		{
+			status= true;
+		}
+		else {
+			status=false;
 	}
+		return status;
+	
+	}
+	
 }
 
 	

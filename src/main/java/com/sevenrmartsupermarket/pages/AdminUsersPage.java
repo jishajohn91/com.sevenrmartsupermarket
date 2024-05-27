@@ -32,21 +32,24 @@ public class AdminUsersPage {
 	private WebElement passwordElement;
 	@FindBy(id = "user_type")
 	private WebElement userTypeElement;
-	@FindBy(name = "create")
+	@FindBy(name = "Create")
 	private WebElement saveButtonElement;
+	@FindBy(xpath ="//div[@class='alert alert-success alert-dismissible']")
+	private WebElement alertTextElement;
 
 	@FindBy(xpath = "//tbody//tr//td[1]")
 	private List<WebElement> nameElements;
 
-	public void inputNewAdminUserDetails(String name, String password, String typeValue) {
+	public boolean inputNewAdminUserDetails(String name, String password, String typeValue) {
 		newButtonElement.click();
 		userNameElement.sendKeys(name);
 		passwordElement.sendKeys(password);
 
 		Select obj = new Select(userTypeElement);
-		obj.selectByValue(typeValue);
+		obj.selectByVisibleText(typeValue);
 		saveButtonElement.click();
-
+		 Boolean userCreatedStatus= alertTextElement.getText().contains("Successfully");
+		return userCreatedStatus;
 	}
 
 	public void listNameOfUsers() {

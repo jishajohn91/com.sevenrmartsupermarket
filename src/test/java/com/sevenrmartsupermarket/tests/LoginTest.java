@@ -33,7 +33,9 @@ public class LoginTest extends Base {
 	public void verifyInvalidLoginErrorMessage() {
 		loginPage = new LoginPage(driver);
 		loginPage.login("jisha1","admin");
-		System.out.println(GeneralUtility.getRandomFullName());
+		//System.out.println(GeneralUtility.getRandomFullName());
+		Boolean invalidAlert= loginPage.getErrorMessage();
+		Assert.assertTrue(invalidAlert);
 		
 			}
 	@Test(dataProvider = "loginCredentials",dataProviderClass = DataProviderClass.class)
@@ -42,11 +44,10 @@ public class LoginTest extends Base {
 		loginPage = new LoginPage(driver);
 	homePage = new HomePage(driver);
 	loginPage.login(user, password);
-	String actualProfileName= homePage.getProfileName();
+	String actualProfileName= (homePage.getProfileName()).toLowerCase();
 	System.out.println(actualProfileName);
-	excelReader.setExcelFile("LoginData", "DPdata");
-	String expName= excelReader.getCellData(0, 2);
-	System.out.println(expName);
+	System.out.println(user);
+	Assert.assertEquals(actualProfileName, user, "Not logged in, invalid user");
 	
 	
 		

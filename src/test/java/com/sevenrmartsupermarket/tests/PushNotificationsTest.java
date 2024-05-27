@@ -37,10 +37,6 @@ public class PushNotificationsTest extends Base {
 
 
 	}
-	@Test
-	public void checkExcel() {
-		excelReader.setExcelFile("PushNotificationData", "Data1");
-		String title= excelReader.getCellData(0, 0);
-	}
+
 	
 }

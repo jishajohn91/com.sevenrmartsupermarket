@@ -14,6 +14,8 @@ public class HomePage {
 	private WebElement pushNotificationTabElement;
 	@FindBy(xpath ="//div//a[contains(@href,'list-admin')]//i")
 	private WebElement adminUsersTabElement;	
+	@FindBy(xpath ="//div//a[contains(@href,'list-product') and @class='small-box-footer']")
+	private WebElement manageProductTabElement;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -32,5 +34,9 @@ public class HomePage {
 	public void openAdminUsersTab() {
 
 		adminUsersTabElement.click();
+	}
+	public void openManageProductsTab() {
+
+		manageProductTabElement.click();
 	}
 }

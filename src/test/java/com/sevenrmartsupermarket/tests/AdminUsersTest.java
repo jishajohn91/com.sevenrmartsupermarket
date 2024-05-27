@@ -15,13 +15,14 @@ public class AdminUsersTest extends Base {
 	HomePage homePage;
 	AdminUsersPage adminUsersPage;
   @Test(groups="smoke")
-  public void navigateToAdminUseraTab() {
+  public void createNewUserInAdminUseraTab() {
 	  loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminUsersPage = new AdminUsersPage(driver);
 		loginPage.login();
 		homePage.openAdminUsersTab();
-		adminUsersPage.inputNewAdminUserDetails("jisha", "pass", "Admin");
+		boolean userCreatedStatus = adminUsersPage.inputNewAdminUserDetails("ji222", "pass", "Admin");
+		Assert.assertTrue(userCreatedStatus);
 		
 		
   }
